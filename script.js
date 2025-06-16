@@ -13,5 +13,39 @@ function estadoNave() {
   alert(`Día ${dia}\n Estado actual:\n- Oxígeno: ${oxigeno}\n- Energía: ${energia}\n- Comida: ${comida}`);
 }
 
+function elegirOpcion() {
+    let opcion = prompt(
+        "Capitan ${nombre}, tiene que tomar una desición ¿Por donde comenzamos?" + 
+        "1 - Estoy viendo un planeta cercano, vamos a explorarlo!" +
+        "2 - Debemos reparar el sistema de energía para comenzar nuestra exploración" +
+        "3 - Considero que debemos descansar, necesito recuperar fuerza"
+    );
+}
 
+ switch (decision) {
+    case "1":
+      alert("Has explorado un planeta. ¡Encontraste algo útil!");
+      comida += Math.floor(Math.random() * 3);  // 0 a 2
+      energia -= 3;
+      oxigeno -= 2;
+      break;
+
+    case "2":
+      alert("Reparaste parte del sistema de energía.");
+      energia += 4;
+      comida -= 2;
+      oxigeno -= 2;
+      break;
+
+    case "3":
+      alert("Descansaste bien, pero perdiste recursos.");
+      energia += 2;
+      comida -= 2;
+      oxigeno -= 1;
+      break;
+
+    default:
+      alert("Opción inválida. Perdiste un turno.");
+      energia -= 1;
+  }
 

@@ -10,41 +10,56 @@ let dia = 1;
 let jugando = true;
 
 function estadoNave() {
-  alert(`Día ${dia}\n Estado actual:\n- Oxígeno: ${oxigeno}\n- Energía: ${energia}\n- Comida: ${comida}`);
+    alert(`Día ${dia}\n Estado actual:\n- Oxígeno: ${oxigeno}\n- Energía: ${energia}\n- Comida: ${comida}`);
 }
 
 function elegirOpcion() {
     let opcion = prompt(
-        "Capitan ${nombre}, tiene que tomar una desición ¿Por donde comenzamos?" + 
-        "1 - Estoy viendo un planeta cercano, vamos a explorarlo!" +
-        "2 - Debemos reparar el sistema de energía para comenzar nuestra exploración" +
-        "3 - Considero que debemos descansar, necesito recuperar fuerza"
+        `Capitan ${nombre}, tiene que tomar una desición ¿Por donde comenzamos?\n
+        1 - Estoy viendo un planeta cercano, vamos a explorarlo!\n
+        2 - Debemos reparar el sistema de energía para comenzar nuestra exploración\n 
+        3 - Considero que debemos descansar, necesito recuperar fuerza`
     );
-}
 
- switch (decision) {
+
+switch (opcion) {
     case "1":
-      alert("Capitan, hemos encontrado nuestro primer planeta, mis ojos no creen lo que ven. ¡Hay comida!"); //Aqui me gustaria agregar descubrimientos, insignias y experiencia, tambien que pudieran explorar el planeta a profundidad
-      comida += Math.floor(Math.random() * 3); 
-      energia -= 3;
-      oxigeno -= 2;
-      break;
+        alert("Capitan, hemos encontrado nuestro primer planeta, mis ojos no creen lo que ven. ¡Hay comida!"); //Aqui me gustaria agregar descubrimientos, insignias y experiencia, tambien que pudieran explorar el planeta a profundidad
+        comida += Math.floor(Math.random() * 3);
+        energia -= 3;
+        oxigeno -= 2;
+        break;
 
     case "2":
-      alert("Bueno Capitan... hemos acabado por hoy, el sistema esta funcionando a la perfección.");
-      energia += 4;
-      comida -= 2;
-      oxigeno -= 2;
-      break;
+        alert("Bueno Capitan... hemos acabado por hoy, el sistema esta funcionando a la perfección.");
+        energia += 4;
+        comida -= 2;
+        oxigeno -= 2;
+        break;
 
     case "3":
-      alert("El descanso es necesario... estoy renovado, calme mi sueño pero no mi sed de aventuras");
-      energia += 2;
-      oxigeno -= 1;
-      break;
+        alert("El descanso es necesario... estoy renovado, calme mi sueño pero no mi sed de aventuras");
+        energia += 2;
+        oxigeno -= 1;
+        break;
 
     default:
-      alert("Opción inválida. Perdiste un turno.");
-      energia -= 1;
+        alert("Opción inválida. Perdiste un turno.");
+        energia -= 1;
+}
+
+ dia++;
+
+  if (oxigeno <= 0 || energia <= 0 || comida <= 0) {
+    alert("🚨 Has perdido, capitán. Uno de tus recursos se ha agotado.");
+    jugando = false;
   }
+}
+
+while (jugando) {
+  estadoNave();
+  elegirOpcion();
+}
+
+alert(`Fin del juego, Capitán ${nombre}. Sobreviviste ${dia - 1} días`);
 

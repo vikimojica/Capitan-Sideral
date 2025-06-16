@@ -24,23 +24,22 @@ function elegirOpcion() {
 
  switch (decision) {
     case "1":
-      alert("Has explorado un planeta. ¡Encontraste algo útil!");
-      comida += Math.floor(Math.random() * 3);  // 0 a 2
+      alert("Capitan, hemos encontrado nuestro primer planeta, mis ojos no creen lo que ven. ¡Hay comida!"); //Aqui me gustaria agregar descubrimientos, insignias y experiencia, tambien que pudieran explorar el planeta a profundidad
+      comida += Math.floor(Math.random() * 3); 
       energia -= 3;
       oxigeno -= 2;
       break;
 
     case "2":
-      alert("Reparaste parte del sistema de energía.");
+      alert("Bueno Capitan... hemos acabado por hoy, el sistema esta funcionando a la perfección.");
       energia += 4;
       comida -= 2;
       oxigeno -= 2;
       break;
 
     case "3":
-      alert("Descansaste bien, pero perdiste recursos.");
+      alert("El descanso es necesario... estoy renovado, calme mi sueño pero no mi sed de aventuras");
       energia += 2;
-      comida -= 2;
       oxigeno -= 1;
       break;
 

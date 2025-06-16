@@ -9,3 +9,9 @@ let comida = 10;
 let dia = 1;
 let jugando = true;
 
+function estadoNave() {
+  alert(`Día ${dia}\n Estado actual:\n- Oxígeno: ${oxigeno}\n- Energía: ${energia}\n- Comida: ${comida}`);
+}
+
+
+
